@@ -7,8 +7,8 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 
 const tasks = require("./routes/tasks");
-const notFound = require("./middlewares/not-found");
-const errorHandler = require("./middlewares/error-handler");
+const notFound = require("./helpers/not-found");
+const errorHandler = require("./helpers/error-handler");
 
 // middleware
 app.use(express.json());
