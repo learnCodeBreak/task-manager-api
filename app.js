@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 const tasks = require("./routes/tasks");
 const notFound = require("./middlewares/not-found");
+const errorHandler = require("./middlewares/error-handler");
 
 // middleware
 app.use(express.json());
@@ -29,6 +30,7 @@ app.get("/healthy", (req, res) => {
 
 app.use("/api/v1/tasks", tasks);
 app.use(notFound);
+app.use(errorHandler);
 
 // start server
 const start = async () => {
