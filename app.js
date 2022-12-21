@@ -4,8 +4,6 @@ const app = express();
 const connectDB = require("./db/connect");
 require("dotenv").config();
 
-const PORT = process.env.PORT || 3000;
-
 const tasks = require("./routes/tasks");
 const notFound = require("./helpers/not-found");
 const errorHandler = require("./helpers/error-handler");
@@ -31,6 +29,9 @@ app.get("/healthy", (req, res) => {
 app.use("/api/v1/tasks", tasks);
 app.use(notFound);
 app.use(errorHandler);
+
+
+const PORT = process.env.PORT || 3000;
 
 // start server
 const start = async () => {
